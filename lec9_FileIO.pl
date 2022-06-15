@@ -24,10 +24,17 @@ close $fh or die "can't close File : $_";
 
 
 
-open $fh, '>>', $emp
+open $fh, '>>', $file or die "can't open File : $_"; #append
 
+print $fh "Louis:Boss:1\n";
+close $fh or die "can't close File : $_";
 
+open $fh, '+<', $file or die "can't open File : $_";#read and write file
 
+seek $fh, 0, 0;#begining of the file
+
+print $fh "Louis:Boss:1\n";
+close $fh or die "can't close File : $_\n";
 
 
 
